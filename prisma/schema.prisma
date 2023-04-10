@@ -1,0 +1,50 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User  {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  email       String    @unique @db.VarChar(255)
+  password    String    @db.VarChar(255)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime  @updatedAt
+  Session     Session[]
+  ScrapBook   ScrapBook[]
+}
+
+model  Session {
+id          Int       @id @default(autoincrement())
+userId      Int
+token       String
+createdAt   DateTime  @default(now())
+updatedAt   DateTime  @updatedAt
+User        User      @relation(fields: [userId], references: [id])
+}
+
+model ScrapBook {
+  id             Int         @id @default(autoincrement())
+  name           String      @db.VarChar(255)
+  userId         Int
+  numberPictures Int         
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  Pictures       Pictures[]
+  User           User        @relation(fields: [userId], references: [id])
+}
+
+model Pictures{
+  id            Int        @id @default(autoincrement())
+  url           String    
+  name          String     @db.VarChar(255)
+  scrapBookId   Int
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  SrapBook      ScrapBook  @relation(fields: [scrapBookId], references: [id])
+}
