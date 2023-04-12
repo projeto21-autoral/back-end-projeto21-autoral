@@ -13,3 +13,9 @@ export type AuthParams = {
     email: string;
     password:string;
 };
+
+export type ScrapbookParams = {
+    name: string,
+    userId: number,
+    numberPictures: number
+}

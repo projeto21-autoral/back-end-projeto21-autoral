@@ -22,7 +22,7 @@ CREATE TABLE "Session" (
 );
 
 -- CreateTable
-CREATE TABLE "ScrapBook" (
+CREATE TABLE "Scrapbook" (
     "id" SERIAL NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "userId" INTEGER NOT NULL,
@@ -30,12 +30,13 @@ CREATE TABLE "ScrapBook" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "ScrapBook_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Scrapbook_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Pictures" (
     "id" SERIAL NOT NULL,
+    "url" TEXT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "scrapBookId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -51,7 +52,7 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ScrapBook" ADD CONSTRAINT "ScrapBook_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Scrapbook" ADD CONSTRAINT "Scrapbook_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Pictures" ADD CONSTRAINT "Pictures_scrapBookId_fkey" FOREIGN KEY ("scrapBookId") REFERENCES "ScrapBook"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Pictures" ADD CONSTRAINT "Pictures_scrapBookId_fkey" FOREIGN KEY ("scrapBookId") REFERENCES "Scrapbook"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
