@@ -8,9 +8,14 @@ async function create(name: string, userId: number, numberPictures: number) {
 
 async function findScrapbookById(id: number) {
   return prisma.scrapbook.findUnique({
-    where: {
+     where: {
       id,
     },
+   
+    include:{      
+      Pictures:{orderBy:{createdAt:"asc"}}       
+    },
+    
   });
 }
 

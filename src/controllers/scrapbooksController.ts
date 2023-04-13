@@ -37,6 +37,7 @@ export async function getScrapbooks(req: AuthenticatedRequest, res: Response) {
     return res.status(httpStatus.BAD_REQUEST).send(error);
   }
 }
+
 export async function getScrapbooksById(req: AuthenticatedRequest, res: Response) {
   const { id } = req.params;
   const scrapbookId = Number(id);

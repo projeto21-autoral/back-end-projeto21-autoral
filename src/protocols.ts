@@ -19,3 +19,14 @@ export type ScrapbookParams = {
     userId: number,
     numberPictures: number
 }
+
+export type PictureParams = {
+    url: string,
+    name: string,
+    scrapBookId: number,
+    comment: string,
+}
+
+export type ArrayPictureParams = PictureParams[]
+
+export type UpdatePictureParams = Omit<PictureParams, "scrapBookId">
