@@ -119,12 +119,12 @@ describe('POST /scrapbooks', () => {
       const response = await server.post('/scrapbooks').set('Authorization', `Bearer ${token}`).send(body)
 
       expect(response.status).toBe(httpStatus.CREATED)
-      expect(response.body).toEqual({
+      expect(response.body).toEqual([{
         id:expect.any(Number),
         name: expect.any(String),
         userId: expect.any(Number),
         numberPictures: expect.any(Number)
-      })
+      }])
     })
 
   })

@@ -1,7 +1,8 @@
 import express, {Express, json, Response, Request} from "express"
 import cors from "cors";
 import { authRouter, usersRouter, scrapbooksRouter, picturesRouter } from "./routers";
-import { loadEnv, connectDb, disconnectDB } from "./config";
+import {  connectDb, disconnectDB } from "./config/database";
+import {loadEnv} from "./config/envs"
 
 loadEnv();
 
