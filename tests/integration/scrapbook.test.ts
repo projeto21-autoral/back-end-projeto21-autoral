@@ -7,7 +7,7 @@ import { createScrapbook, createUser } from '../factories';
 import { cleanDb, generateValidToken } from '../helpers';
 import { notFoundError } from '@/errors/notFoundError';
 import * as jwt from 'jsonwebtoken';
-import exp from 'constants';
+
 
 beforeAll(async () => {
   await init();

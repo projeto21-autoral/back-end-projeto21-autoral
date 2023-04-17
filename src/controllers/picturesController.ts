@@ -34,20 +34,6 @@ export async function getPicturesById(req: AuthenticatedRequest, res: Response) 
   }
 }
 
-// export async function getPicturesByScrapbookId(req: AuthenticatedRequest, res: Response) {
-//   const { scrapbookId } = req.body;
-
-//   try {
-//     const pictures = await picturesService.findPictureByScrapBookId(scrapbookId);
-//     return res.status(httpStatus.OK).send(pictures);
-//   } catch (error) {
-//     if (error.name === 'NotFoundError') {
-//       return res.status(httpStatus.NOT_FOUND).send(error);
-//     }
-//     return res.status(httpStatus.BAD_REQUEST).send(error);
-//   }
-// }
-
 export async function deletePictures(req: AuthenticatedRequest, res: Response) {
   const { id } = req.params;
   const pictureId = Number(id);

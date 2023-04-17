@@ -2,18 +2,35 @@ services:
   postgres:
     image: postgres
     container_name: postgres
+    restart: always
+    networks:
+      - autoral-network
     ports:
      - 5433:5432
     env_file:
-      - .env
+      - .env.development
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
 
   node:
     container_name: node
-    build: .
+    build: 
+      dockerfile: Dockerfile
+      context: .
     image: fullstack/backend
+    networks:
+      - autoral-network
     ports:
-     - 5000:5000
+     - 1234:5000
     depends_on:
       - postgres
     env_file:
-      - .env
+      - .env.development
+
+networks:
+  autoral-network:
+    name: autoral-network
+    driver: bridge
+
+volumes:
+  postgres-volume:

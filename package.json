@@ -2,11 +2,11 @@
   "name": "back-end-projeto21-autoral",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc -p tsconfig.build.json",
-    "start": "npm run prisma:migrate:run &&  node dist/server.js",
+    "start": "npm run migration:run &&  node dist/server.js",
     "migration:run": "prisma migrate deploy",
     "migration:generate": "npm run dev:load-envs prisma migrate dev",
     "lint": "eslint .",
