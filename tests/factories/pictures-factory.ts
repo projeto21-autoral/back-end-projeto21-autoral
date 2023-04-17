@@ -1,7 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Pictures } from '@prisma/client';
-import { prisma } from '@/config';
-import { createScrapbook } from './scrapbook-factory';
+import { prisma } from '../config';
 
 export async function createPictures(scrapBookId: number){
   

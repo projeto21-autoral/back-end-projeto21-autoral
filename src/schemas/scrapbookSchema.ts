@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { ScrapbookParams } from "@/protocols";
+import { ScrapbookParams } from "../protocols";
 
 export const scrapbookSchema = Joi.object<ScrapbookParams>({
     name: Joi.string().required(),

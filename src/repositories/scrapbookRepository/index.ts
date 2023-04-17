@@ -1,4 +1,4 @@
-import { prisma } from '@/config';
+import { prisma } from '../../config';
 
 async function create(name: string, userId: number, numberPictures: number) {
   return prisma.scrapbook.create({

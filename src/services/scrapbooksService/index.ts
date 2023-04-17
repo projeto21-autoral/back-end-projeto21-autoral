@@ -1,6 +1,5 @@
-import { notFoundError } from '@/errors/notFoundError';
-import { ScrapbookParams } from '@/protocols';
-import scrapbookRepository from '@/repositories/scrapbookRepository';
+import { notFoundError } from '../../errors/notFoundError';
+import scrapbookRepository from '../../repositories/scrapbookRepository';
 
 async function createScrapbook(name: string, userId: number, numberPictures: number) {
   return scrapbookRepository.create(name, userId, numberPictures);

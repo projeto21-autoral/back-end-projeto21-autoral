@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import { Request, Response } from 'express';
-import userService from 'services/userService';
-import { AuthenticatedRequest } from '@/middlewares/authMiddleware';
+import userService from '../services/userService';
+import { AuthenticatedRequest } from '../middlewares/authMiddleware';
 
 export async function postUser(req: Request, res: Response) {
   const { name, email, password } = req.body;

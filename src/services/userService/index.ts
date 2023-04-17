@@ -1,9 +1,9 @@
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
-import { UserParams } from "protocols";
+import { UserParams } from "../../protocols";
 import { duplicatedEmailError} from "./errors";
-import { notFoundError } from "@/errors/notFoundError";
-import userRepository from "repositories/userRepository";
+import { notFoundError } from "../../errors/notFoundError";
+import userRepository from "../../repositories/userRepository";
 
 type UserIdParams = {
     userId: number;

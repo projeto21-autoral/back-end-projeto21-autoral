@@ -1,5 +1,5 @@
-import { prisma } from '@/config';
-import { ArrayPictureParams, UpdatePictureParams } from '@/protocols';
+import { prisma } from '../../config';
+import { ArrayPictureParams } from '../../protocols';
 
 async function createMany(data: ArrayPictureParams) {
   return prisma.pictures.createMany({

@@ -1,11 +1,9 @@
-import app, { init } from '@/app';
-import { prisma } from '@/config';
+import app, { init } from '../app';
 import { faker } from '@faker-js/faker';
 import httpStatus from 'http-status';
 import supertest from 'supertest';
 import { createPictures, createScrapbook, createUser } from '../factories';
 import { cleanDb, generateValidToken } from '../helpers';
-import { notFoundError } from '@/errors/notFoundError';
 import * as jwt from 'jsonwebtoken';
 
 beforeAll(async () => {

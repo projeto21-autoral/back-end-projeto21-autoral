@@ -1,7 +1,7 @@
-import { AuthenticatedRequest } from '@/middlewares/authMiddleware';
+import { AuthenticatedRequest } from '../middlewares/authMiddleware';
 import { Response } from 'express';
 import httpStatus from 'http-status';
-import scrapbookService from '@/services/scrapbooksService';
+import scrapbookService from '../services/scrapbooksService';
 
 export async function postScrapbook(req: AuthenticatedRequest, res: Response) {
   const { name, numberPictures } = req.body;

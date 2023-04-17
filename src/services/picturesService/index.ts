@@ -1,8 +1,8 @@
-import { ArrayPictureParams } from '@/protocols';
-import { notFoundError } from '@/errors/notFoundError';
-import pictureRepository from '@/repositories/picturesRepository';
-import scrapbookRepository from '@/repositories/scrapbookRepository';
-import { forbiddenError } from '@/errors/forbiddenError';
+import { ArrayPictureParams } from '../../protocols';
+import { notFoundError } from '../../errors/notFoundError';
+import pictureRepository from '../../repositories/picturesRepository';
+import scrapbookRepository from '../../repositories/scrapbookRepository';
+import { forbiddenError } from '../../errors/forbiddenError';
 
 async function createMany(data: ArrayPictureParams) {
   const scrapbook = await scrapbookRepository.findScrapbookById(data[0].scrapBookId)

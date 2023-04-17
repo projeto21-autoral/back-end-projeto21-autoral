@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { PictureParams } from "@/protocols";
+import { PictureParams } from "../protocols";
 const pictureSchema = Joi.object({
     pictures: Joi.array().items(
       Joi.object<PictureParams>({

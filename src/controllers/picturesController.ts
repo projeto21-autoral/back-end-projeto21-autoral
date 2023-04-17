@@ -1,8 +1,8 @@
 import { Response } from 'express';
-import { AuthenticatedRequest } from '@/middlewares/authMiddleware';
+import { AuthenticatedRequest } from '../middlewares/authMiddleware';
 import httpStatus from 'http-status';
-import picturesService from '@/services/picturesService';
-import { ArrayPictureParams } from '@/protocols';
+import picturesService from '../services/picturesService';
+import { ArrayPictureParams } from '../protocols';
 
 export async function postPictures(req: AuthenticatedRequest, res: Response) {
   const pictures = req.body.pictures as ArrayPictureParams;

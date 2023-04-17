@@ -1,6 +1,6 @@
 import express, {Express, json, Response, Request} from "express"
 import cors from "cors";
-import { authRouter, usersRouter, scrapbooksRouter, picturesRouter } from "routers";
+import { authRouter, usersRouter, scrapbooksRouter, picturesRouter } from "./routers";
 import { loadEnv, connectDb, disconnectDB } from "./config";
 
 loadEnv();

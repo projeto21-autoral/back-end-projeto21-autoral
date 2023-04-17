@@ -1,7 +1,7 @@
 import { ArraySchema, ObjectSchema } from 'joi';
 import { NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { invalidDataError } from '@/errors/invalidDataError';
+import { invalidDataError } from '../errors/invalidDataError';
 
 type ValidationMiddleware = (req: Request, res: Response, next: NextFunction) => void;
 

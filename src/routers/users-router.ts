@@ -1,8 +1,8 @@
-import { validateAllBody } from '@/middlewares/validationAuthMiddleware';
-import { signUpSchema } from '@/schemas/signUpSchema';
+import { validateAllBody } from '../middlewares/validationAuthMiddleware';
+import { signUpSchema } from '../schemas/signUpSchema';
 import { Router } from 'express';
-import { getAllUsers, getUserById, postUser } from '@/controllers/usersController';
-import { authenticatedToken } from '@/middlewares/authMiddleware';
+import { getAllUsers, getUserById, postUser } from '../controllers/usersController';
+import { authenticatedToken } from '../middlewares/authMiddleware';
 
 const usersRouter = Router();
 

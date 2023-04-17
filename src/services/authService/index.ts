@@ -1,11 +1,11 @@
-import bcrypt, { compare } from "bcrypt"
+import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import sessionRepository from "@/repositories/sessionRepository";
-import { AuthParams } from "@/protocols";
-import userRepository from "@/repositories/userRepository";
+import sessionRepository from "../../repositories/sessionRepository";
+import { AuthParams } from "../../protocols";
+import userRepository from "../../repositories/userRepository";
 import { invalidCredentialsError } from "./erros";
 import { User } from "@prisma/client";
-import { exclude } from "@/utils/exclude";
+import { exclude } from "../../utils/exclude";
 
 async function signIn(params: AuthParams): Promise <SignInResult> {
     const {email, password} = params;
