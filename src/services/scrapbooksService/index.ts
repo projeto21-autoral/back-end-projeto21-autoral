@@ -2,7 +2,7 @@ import { notFoundError } from '@/errors/notFoundError';
 import { ScrapbookParams } from '@/protocols';
 import scrapbookRepository from '@/repositories/scrapbookRepository';
 
-async function createScrapbook(name: string, userId: number, numberPictures: number): Promise<ScrapbookParams> {
+async function createScrapbook(name: string, userId: number, numberPictures: number) {
   return scrapbookRepository.create(name, userId, numberPictures);
 }
 
@@ -15,14 +15,14 @@ async function findScrapbookById(id: number) {
 
 async function findScrapbookByUserId(userId: number) {
   const userScrapbooks = await scrapbookRepository.findScrapbookByUserId(userId);
-  if (!userScrapbooks) throw notFoundError();
+  if (userScrapbooks.length < 1) throw notFoundError();
 
   return userScrapbooks;
 }
 
 async function deleteScrapbook(scrapbookId: number) {
-  await findScrapbookById(scrapbookId);
-
+  const scrapbook = await findScrapbookById(scrapbookId);
+  if(!scrapbook) throw notFoundError()
   const deletedScrapbook = await scrapbookRepository.deleteScrapbook(scrapbookId);
 
   return deletedScrapbook;

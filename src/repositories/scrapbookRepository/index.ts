@@ -23,7 +23,9 @@ async function findScrapbookByUserId(userId: number) {
   return prisma.scrapbook.findMany({
     where: {
       userId,
-    },
+    },include:{
+      Pictures:{orderBy:{createdAt:"asc"}} 
+    }
   });
 }
 

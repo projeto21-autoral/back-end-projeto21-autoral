@@ -17,11 +17,6 @@ async function findPictureById(pictureId: number) {
   return picture;
 }
 
-// async function findPictureByScrapBookId(scrapBookId: number) {
-
-//   const pictures = await pictureRepository.findPictureByScrapbookId(scrapBookId);
-//   if (!pictures) throw notFoundError();
-// }
 
 async function deletePicture(pictureId: number) {
   await findPictureById(pictureId);
@@ -30,15 +25,17 @@ async function deletePicture(pictureId: number) {
 }
 
 async function updatePicture(pictureId: number, url: string, name: string, comment: string) {
+  
   const picture = await findPictureById(pictureId);
-  const updatedPicture = await pictureRepository.updatePicture(picture.id, { url, name, comment });
+  
+  const updatedPicture = await pictureRepository.updatePicture(picture.id,  url, name, comment );
+  
   return updatedPicture;
 }
 
 const picturesService = {
   createMany,
   findPictureById,
-//   findPictureByScrapBookId,
   deletePicture,
   updatePicture,
 };

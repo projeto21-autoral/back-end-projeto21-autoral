@@ -10,6 +10,7 @@ export async function postScrapbook(req: AuthenticatedRequest, res: Response) {
   try {
     const newScrapbook = await scrapbookService.createScrapbook(name, userId, numberPictures);
     return res.status(httpStatus.CREATED).json({
+      id:newScrapbook.id,
       name: newScrapbook.name,
       userId: newScrapbook.userId,
       numberPictures: newScrapbook.numberPictures,
@@ -41,7 +42,7 @@ export async function getScrapbooks(req: AuthenticatedRequest, res: Response) {
 export async function getScrapbooksById(req: AuthenticatedRequest, res: Response) {
   const { id } = req.params;
   const scrapbookId = Number(id);
-  const { userId } = req;
+  
   try {
     const scrapbook = await scrapbookService.findScrapbookById(scrapbookId);
     return res.status(httpStatus.OK).send(scrapbook);
@@ -54,7 +55,7 @@ export async function getScrapbooksById(req: AuthenticatedRequest, res: Response
 }
 
 export async function deleteScrapbook(req: AuthenticatedRequest, res: Response) {
-  const { userId } = req;
+  
   const { id } = req.params;
   const scrapbookId = Number(id);
   try {

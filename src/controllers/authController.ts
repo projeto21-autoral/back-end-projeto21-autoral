@@ -5,7 +5,7 @@ import authService from 'services/authService';
 
 export async function signInController(req: Request, res: Response) {
   const { email, password } = req.body as AuthParams;
-
+  
   try {
     const access = await authService.signIn({ email, password });
     return res.status(httpStatus.OK).send(access);

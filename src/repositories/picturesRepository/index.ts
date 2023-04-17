@@ -15,13 +15,6 @@ async function findPictureById(id: number) {
   });
 }
 
-// async function findPictureByScrapbookId(scrapBookId: number) {
-//   return prisma.pictures.findMany({
-//     where: {
-//       scrapBookId,
-//     },
-//   });
-// }
 
 async function deletePicture(id: number) {
   return prisma.pictures.delete({
@@ -31,15 +24,15 @@ async function deletePicture(id: number) {
   });
 }
 
-async function updatePicture(id: number, data: UpdatePictureParams) {
+async function updatePicture(id: number, url:string, name:string, comment:string) {
   return prisma.pictures.update({
     where: {
       id,
     },
     data: {
-      url: data.url,
-      name: data.name,
-      comment: data.comment,
+      url,
+      name,
+      comment,
     },
   });
 }
@@ -47,7 +40,6 @@ async function updatePicture(id: number, data: UpdatePictureParams) {
 const pictureRepository = {
   createMany,
   findPictureById,
-//   findPictureByScrapbookId,
   deletePicture,
   updatePicture,
 };
