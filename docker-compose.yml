@@ -8,24 +8,22 @@ services:
     ports:
      - 5433:5432
     env_file:
-      - .env.development
+      - .env
     volumes:
       - postgres-volume:/var/lib/postgresql/data
 
   node:
     container_name: node
-    build: 
-      dockerfile: Dockerfile
-      context: .
+    build: .      
     image: fullstack/backend
     networks:
       - autoral-network
     ports:
-     - 1234:5000
+     - 5000:5000
     depends_on:
       - postgres
     env_file:
-      - .env.development
+      - .env
 
 networks:
   autoral-network:
