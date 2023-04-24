@@ -6,14 +6,14 @@ services:
     ports:
       - 5433:5432
     env_file:
-      - ./back-end/.env.test
+      - .env.test
 
   node:
     container_name: node
-    build: ./back-end
+    build: .
     ports:
       - 5000:5000
     depends_on:
       - postgres
     env_file:
-      - ./back-end/.env.test
+      - .env.test
