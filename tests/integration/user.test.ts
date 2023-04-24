@@ -1,6 +1,6 @@
-import app, { init } from '../app';
-import { prisma } from '../config';
-import { duplicatedEmailError } from '../services/userService/errors';
+import app, { init } from '../../src/app';
+import { prisma } from '../../src/config';
+import { duplicatedEmailError } from '../../src/services/userService/errors';
 import { faker } from '@faker-js/faker';
 import httpStatus from 'http-status';
 import supertest from 'supertest';

@@ -2,10 +2,10 @@ import * as jwt from "jsonwebtoken";
 import { User } from "@prisma/client";
 import { createUser } from "./factories";
 import { createSession } from "./factories/sessions-factory";
-import { prisma } from "./config/database";
+import { prisma } from "../src/config";
 
 export async function cleanDb() {
-  
+    
   await prisma.pictures.deleteMany({});
   await prisma.scrapbook.deleteMany({});
   await prisma.session.deleteMany({});
